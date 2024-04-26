@@ -1,0 +1,143 @@
+:root{
+    --bg-grey: #121212;
+    --bg-radius: 10px;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    background-color: black;
+    color: white;
+}
+#sidebar{
+    /* border: 1px solid green; */
+    width: 25vw;
+    padding: 8px;
+    line-height: 45px;
+    
+}
+#container{
+    display: flex;
+    gap: 5px;
+}
+#home-section{
+    background-color: var(--bg-grey);
+    padding: 15px;
+    border-radius: var(--bg-radius);
+}
+#sidebar img{
+   filter: invert(1);
+}
+.svg-icon{
+    width: 20px;
+}
+#sidebar a{
+    color: white;
+    text-decoration: none;
+}
+.center{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+#library-section{
+    margin-top: 10px;
+    background-color: var(--bg-grey);
+    padding: 15px;
+    border-radius: var(--bg-radius);
+    height: 72vh;
+    position: relative;
+}
+#library-section>div{
+    display: flex;
+    justify-content: space-between;
+}
+
+#library-section>div>button{
+    background-color: transparent;
+    padding: 10px;
+    border: none;
+    /* color: white; */
+    cursor: pointer;
+}
+#library-section>div>button>img{
+    width: 20px;
+}
+#library-section>div>button:hover{
+    /* border: 1px solid green; */
+    border-radius: 50%;
+    background-color: #1f1e1e;
+}
+#sidebar-footer{
+    /* border: 1px solid green; */
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    gap: 15px;
+}
+#sidebar-footer>a{
+    color: grey;
+    font-size: 12px;
+}
+#contents{
+    /* border: 1px solid blue; */
+    width: 75vw;
+    padding: 10px 0;
+    /* padding: 15px; */
+}
+#navbar-section{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(34 34 34);
+    border-radius: 10px 10px 0 0;
+    height: 10vh;
+    padding: 20px;
+}
+#arrow-section>img{
+    background-color: #121212;
+    padding: 5px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+#auth-section>button{
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: medium;
+}
+#auth-section>button:first-child{
+    color: white;
+    margin-right: 20px;
+}
+#auth-section>button:last-child{
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+#songs-section{
+    border: 1px solid white;
+    background-color: var(--bg-grey);
+    border-radius: 0 0 10px 10px;
+    height: 86vh;
+    position: relative;
+}
+#player{
+    /* background-color: black; */
+    border: 1px solid white;
+    width: 90%;
+    /* height: 20px; */
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}

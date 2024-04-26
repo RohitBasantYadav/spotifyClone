@@ -1,0 +1,28 @@
+{
+    "songs": [
+        {
+            "id":1,
+            "songName": "Crule - Foxes",
+            "path":"songs/04. Cruel. - Foxes (320kbps).mp3",
+            "artist":"Foxes"
+        },
+        {
+            "id":2,
+            "songName": "Faded",
+            "path":"songs/080. Alan Walker - Faded.mp3",
+            "artist":"Alan Walker"
+        },
+        {
+            "id":3,
+            "songName": "Attention",
+            "path":"songs/Attention.mp3",
+            "artist":"Charlie Puth"
+        },
+        {
+            "id":4,
+            "songName": "The Nights",
+            "path":"songs/Avicii - The Nights.mp3",
+            "artist":"Avicii"
+        }
+    ]
+}

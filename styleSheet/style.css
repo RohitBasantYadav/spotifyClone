@@ -52,7 +52,7 @@ body{
     height: 72vh;
     position: relative;
 }
-#library-section>div{
+#library-section>div:first-child{
     display: flex;
     justify-content: space-between;
 }
@@ -128,16 +128,36 @@ body{
     position: relative;
 }
 #player{
-    /* background-color: black; */
     border: 1px solid white;
-    width: 90%;
+    width: 100%;
     /* height: 20px; */
     position: absolute;
     bottom: 0;
-    left: 5%;
+    /* left: 5%; */
     margin: 10px 0;
+}
+#playerBtn{
+    /* background-color: black; */
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 40px;
+}
+#library-list{
+    overflow-y: scroll;
+    height: 350px;
+    margin-top: 30px;
+}
+#library-list>div{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    line-height: normal;
+}
+#library-list>div img{
+    width: 100%;
+    filter: none;
+}
+.poster{
+    width: 20%;
 }

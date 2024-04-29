@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="icon" href="https://open.spotifycdn.com/cdn/images/favicon.0f31d2ea.ico" type="image/x-icon">
     <link rel="styleSheet" href="./styleSheet/style.css">
 </head>
+
 <body>
     <div id="container">
 
@@ -39,6 +41,9 @@
                         <img src="./img/plus.svg" alt="">
                     </button>
                 </div>
+                <div id="library-list">
+
+                </div>
                 <div id="sidebar-footer">
                     <a href="">Legal</a>
                     <a href="">Safety & Privacy Center</a>
@@ -64,17 +69,23 @@
             <div id="songs-section">
 
                 <div id="player">
-                    <img src="./img/previous.svg" alt="">
-                    <img src="./img/play.svg" alt="">
-                    <img src="./img/next.svg" alt="">
+                    <div id="playerBtn">
+                        <img id="prevBtn" src="./img/previous.svg" alt="">
+                        <img id="playBtn" src="./img/play.svg" alt="">
+                        <img id="nextBtn" src="./img/next.svg" alt="">
+                    </div>
+                    <div id="demo">
+                        Volume:<input type="range" id="volumeRange" min="0" max="1" step="0.01" value="1">
+                        Seeking:<input type="range" id="seekRange" min="0" max="100" step="1" value="0">
+                        <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div id="demo">
 
-    </div>
 </body>
+
 </html>
 
 <script src="./script.js"></script>

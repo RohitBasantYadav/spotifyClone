@@ -127,6 +127,33 @@ body{
     height: 86vh;
     position: relative;
 }
+
+#library-list{
+    /* border: 1px solid green; */
+    padding: 0;
+    overflow-y: scroll;
+    height: 350px;
+    margin-top: 30px;
+    scrollbar-color: #5d5959 #252524;
+    scrollbar-width: thin;
+}
+#library-list>div{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    line-height: normal;
+}
+#library-list>div>div:nth-child(2){
+    width: 60%;
+}
+#library-list>div img{
+    width: 100%;
+    filter: none;
+}
+.poster{
+    width: 20%;
+}
+
 #player{
     border: 1px solid white;
     width: 100%;
@@ -135,29 +162,56 @@ body{
     bottom: 0;
     /* left: 5%; */
     margin: 10px 0;
+    padding: 0 40px;
 }
 #playerBtn{
     /* background-color: black; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+#userInteractionBtns{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 40px;
 }
-#library-list{
-    overflow-y: scroll;
-    height: 350px;
-    margin-top: 30px;
-}
-#library-list>div{
+#volumeSection{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    line-height: normal;
 }
-#library-list>div img{
-    width: 100%;
-    filter: none;
+#songNameSection{
+    display: flex;
+    /* justify-content: space-around; */
+    width:25%;
+    align-items: center;
+    gap: 20px;
+    /* border: 1px solid blue; */
 }
-.poster{
+#songNameSection>div:first-child{
+    /* border: 1px solid green; */
     width: 20%;
+}
+#songNameSection>div:last-child{
+    /* border: 1px solid red; */
+    width: 100%;
+}
+#songNameSection>div:last-child>p{
+    font-weight: bold;
+}
+.artist{
+    font-size: small;
+    color: #8b8080;
+}
+#songNameSection>div>img{
+    width: 100%;
+}
+
+
+/* Input range styling */
+
+#volumeRange{
+    
 }

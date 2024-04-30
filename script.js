@@ -1,8 +1,12 @@
-let container = document.getElementById("demo")
+let container = document.getElementById("seekingSection");
 let playBtn = document.getElementById("playBtn");
 let prevBtn = document.getElementById("prevBtn");
 let nextBtn = document.getElementById("nextBtn");
-let libraryList = document.getElementById("library-list")
+let libraryList = document.getElementById("library-list");
+let songNameSection = document.getElementById("songNameSection");
+let docTitle = document.querySelector("title");
+
+
 
 const volumeRange = document.getElementById('volumeRange');
 const seekRange = document.getElementById('seekRange');
@@ -17,70 +21,70 @@ let audio1 = document.createElement("audio");
 let songs = [
     {
         id: 1,
-        image:"songsImg/Cruel-foxes.jpeg",
-        songName: "Crule - Foxes",
+        image: "songsImg/Cruel-foxes.jpeg",
+        songName: "Cruel",
         path: "songs/04. Cruel. - Foxes (320kbps).mp3",
         artist: "Foxes"
     },
     {
         id: 2,
-        image:"songsImg/Faded.jpeg",
+        image: "songsImg/Faded.jpeg",
         songName: "Faded",
         path: "songs/080. Alan Walker - Faded.mp3",
         artist: "Alan Walker"
     },
     {
         id: 3,
-        image:"songsImg/Attention.jpeg",
+        image: "songsImg/Attention.jpeg",
         songName: "Attention",
         path: "songs/Attention.mp3",
         artist: "Charlie Puth"
     },
     {
         id: 4,
-        image:"songsImg/The nights.jpeg",
+        image: "songsImg/The nights.jpeg",
         songName: "The Nights",
         path: "songs/Avicii - The Nights.mp3",
         artist: "Avicii"
     },
     {
         id: 4,
-        image:"songsImg/The nights.jpeg",
+        image: "songsImg/The nights.jpeg",
         songName: "The Nights",
         path: "songs/Avicii - The Nights.mp3",
         artist: "Avicii"
     },
     {
         id: 4,
-        image:"songsImg/The nights.jpeg",
+        image: "songsImg/The nights.jpeg",
         songName: "The Nights",
         path: "songs/Avicii - The Nights.mp3",
         artist: "Avicii"
     },
     {
         id: 4,
-        image:"songsImg/The nights.jpeg",
+        image: "songsImg/The nights.jpeg",
         songName: "The Nights",
         path: "songs/Avicii - The Nights.mp3",
         artist: "Avicii"
     },
     {
         id: 4,
-        image:"songsImg/The nights.jpeg",
+        image: "songsImg/The nights.jpeg",
         songName: "The Nights",
         path: "songs/Avicii - The Nights.mp3",
         artist: "Avicii"
     },
     {
         id: 4,
-        image:"songsImg/The nights.jpeg",
+        image: "songsImg/The nights.jpeg",
         songName: "The Nights",
         path: "songs/Avicii - The Nights.mp3",
         artist: "Avicii"
     },
     {
         id: 4,
-        image:"songsImg/The nights.jpeg",
+        image: "songsImg/The nights.jpeg",
         songName: "The Nights",
         path: "songs/Avicii - The Nights.mp3",
         artist: "Avicii"
@@ -88,13 +92,30 @@ let songs = [
 ]
 
 let dataLength = songs.length;
+console.log(dataLength)
 displayData(songs)
 
 
 
 function displayData(data) {
     // console.log(i)
-    console.log(data[i].path)
+    // console.log(data[i].path)
+    songNameSection.innerHTML = "";
+    let div1 = document.createElement("div");
+    let img = document.createElement("img");
+    img.src = data[i].image;
+
+    let div2 = document.createElement("div");
+    let p1 = document.createElement("p");
+    p1.textContent = data[i].songName;
+    let p2 = document.createElement("p");
+    p2.setAttribute("class", "artist")
+    p2.textContent = data[i].artist;
+
+    div1.append(img);
+    div2.append(p1, p2);
+    songNameSection.append(div1, div2);
+
     audio1.src = data[i].path;
     container.append(audio1)
 }
@@ -108,55 +129,84 @@ playBtn.addEventListener("click", function () {
 function playAndPause() {
     if (flag) {
         audio1.play();
+        docTitle.textContent = `${songs[i].songName} - ${songs[i].artist}`
         flag = false;
         playBtn.src = "./img/pause.svg";
     } else {
         audio1.pause();
+        docTitle.textContent = "Spotify - Web Player: Music for everyone";
         flag = true;
         playBtn.src = "./img/play.svg";
     }
 }
 
 // Next Song Button
-nextBtn.addEventListener("click", () => {
+nextBtn.addEventListener("click", nextBtnFunc)
+
+function nextBtnFunc() {
     if (i == dataLength - 1) {
         i = 0;
         audio1.pause();
+        docTitle.textContent = "Spotify - Web Player: Music for everyone";
         flag = true;
         playBtn.src = "./img/play.svg";
         setTimeout(() => {
             displayData(songs)
             audio1.play();
+            docTitle.textContent = `${songs[i].songName} - ${songs[i].artist}`
             flag = false;
             playBtn.src = "./img/pause.svg";
         }, 200)
     } else {
         i++;
         audio1.pause();
+        docTitle.textContent = "Spotify - Web Player: Music for everyone";
         flag = true;
         playBtn.src = "./img/play.svg";
         setTimeout(() => {
             displayData(songs)
             audio1.play();
+            docTitle.textContent = `${songs[i].songName} - ${songs[i].artist}`
             flag = false;
             playBtn.src = "./img/pause.svg";
             // displayData(songs)
         }, 100)
     }
-})
-
+}
 
 // Prev Song Button
-prevBtn.addEventListener("click", () => {
+prevBtn.addEventListener("click", prevBtnFunc)
+
+function prevBtnFunc() {
     if (i == 0) {
         i = dataLength - 1;
-        displayData(songs)
+        audio1.pause();
+        docTitle.textContent = "Spotify - Web Player: Music for everyone";
+        flag = true;
+        playBtn.src = "./img/play.svg";
+        setTimeout(() => {
+            displayData(songs)
+            audio1.play();
+            docTitle.textContent = `${songs[i].songName} - ${songs[i].artist}`
+            flag = false;
+            playBtn.src = "./img/pause.svg";
+        }, 200)
     } else {
         i--;
-        displayData(songs)
+        audio1.pause();
+        docTitle.textContent = "Spotify - Web Player: Music for everyone";
+        flag = true;
+        playBtn.src = "./img/play.svg";
+        setTimeout(() => {
+            displayData(songs)
+            audio1.play();
+            docTitle.textContent = `${songs[i].songName} - ${songs[i].artist}`
+            flag = false;
+            playBtn.src = "./img/pause.svg";
+            // displayData(songs)
+        }, 100)
     }
-})
-
+}
 
 //Volume range Button
 volumeRange.addEventListener('input', () => {
@@ -175,9 +225,10 @@ seekRange.addEventListener('input', () => {
 audio1.addEventListener("timeupdate", () => {
     seekRange.value = audio1.currentTime;
     if (audio1.currentTime == audio1.duration) {
-        audio1.pause();
-        flag = true;
-        playBtn.src = "./img/play.svg";
+        // audio1.pause();
+        // flag = true;
+        // playBtn.src = "./img/play.svg";
+        nextBtnFunc()
     }
 });
 
@@ -203,31 +254,32 @@ function formatTime(timeInSeconds) {
 
 // Adding List of songs to Library section
 
-function appendSongsToLibrary(data){
-    data.forEach((el)=>{
+function appendSongsToLibrary(data) {
+    data.forEach((el) => {
         let maindiv = document.createElement("div")
         let imgdiv = document.createElement("div");
-        imgdiv.setAttribute("class","poster")
+        imgdiv.setAttribute("class", "poster")
         let contentdiv = document.createElement("div");
         let playBtndiv = document.createElement("div");
 
         let img = document.createElement("img");
         img.src = el.image;
-        
+
         let title = document.createElement("p");
         title.textContent = el.songName;
         let artist = document.createElement("p");
+        artist.setAttribute("class", "artist")
         artist.textContent = el.artist;
 
         let svg = document.createElement("img");
         svg.src = "/img/play.svg";
 
         imgdiv.append(img);
-        contentdiv.append(title,artist);
+        contentdiv.append(title, artist);
 
         playBtndiv.append(svg);
 
-        maindiv.append(imgdiv,contentdiv,playBtndiv);
+        maindiv.append(imgdiv, contentdiv, playBtndiv);
         libraryList.append(maindiv)
     })
 }

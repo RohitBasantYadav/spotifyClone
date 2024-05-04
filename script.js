@@ -2,10 +2,14 @@ let container = document.getElementById("seekingSection");
 let playBtn = document.getElementById("playBtn");
 let prevBtn = document.getElementById("prevBtn");
 let nextBtn = document.getElementById("nextBtn");
+let volumeBtn = document.getElementById("volumeBtn");
 let libraryList = document.getElementById("library-list");
 let songNameSection = document.getElementById("songNameSection");
 let docTitle = document.querySelector("title");
 
+let flag = true;
+let i = 0;
+let audio1 = document.createElement("audio");
 
 
 const volumeRange = document.getElementById('volumeRange');
@@ -13,9 +17,7 @@ const seekRange = document.getElementById('seekRange');
 const currentTimeDisplay = document.getElementById('currentTime');
 const durationDisplay = document.getElementById('duration');
 
-let flag = true;
-let i = 0;
-let audio1 = document.createElement("audio");
+
 
 
 let songs = [
@@ -92,12 +94,13 @@ let songs = [
 ]
 
 let dataLength = songs.length;
-console.log(dataLength)
+// console.log(dataLength)
 displayData(songs)
 
 
 
 function displayData(data) {
+    // console.log(data)
     // console.log(i)
     // console.log(data[i].path)
     songNameSection.innerHTML = "";
@@ -138,6 +141,7 @@ function playAndPause() {
         flag = true;
         playBtn.src = "./img/play.svg";
     }
+
 }
 
 // Next Song Button
@@ -210,8 +214,21 @@ function prevBtnFunc() {
 
 //Volume range Button
 volumeRange.addEventListener('input', () => {
-    audio1.volume = volumeRange.value;
+    if (volumeRange.value == 0) {
+        audio1.volume = volumeRange.value;
+        volumeBtn.src = "./img/mute.svg"
+    }
+    else {
+        audio1.volume = volumeRange.value;
+        volumeBtn.src = "./img/volume.svg"
+    }
 });
+
+volumeBtn.addEventListener("click", () => {
+    volumeBtn.src = "./img/mute.svg";
+    volumeRange.value = 0;
+    audio1.volume = volumeRange.value;
+})
 
 
 // Seeking bar Button
@@ -251,7 +268,6 @@ function formatTime(timeInSeconds) {
 }
 
 
-
 // Adding List of songs to Library section
 
 function appendSongsToLibrary(data) {
@@ -272,7 +288,10 @@ function appendSongsToLibrary(data) {
         artist.textContent = el.artist;
 
         let svg = document.createElement("img");
-        svg.src = "/img/play.svg";
+        svg.src = "./img/play.svg"
+        svg.addEventListener("click",()=>{
+            libraryPlayFunc(svg,songs,el)
+        })
 
         imgdiv.append(img);
         contentdiv.append(title, artist);
@@ -284,3 +303,34 @@ function appendSongsToLibrary(data) {
     })
 }
 appendSongsToLibrary(songs)
+
+function libraryPlayFunc(svg,songs,obj){
+    let newId = obj.id-1;
+    i=newId;
+
+    if (flag) {
+        displayData(songs)
+        audio1.play();
+        docTitle.textContent = `${songs[i].songName} - ${songs[i].artist}`
+        flag = false;
+        svg.src = "./img/pause.svg";
+    } else {
+        audio1.pause();
+        docTitle.textContent = "Spotify - Web Player: Music for everyone";
+        flag = true;
+        svg.src = "./img/play.svg";
+    }
+
+    // audio1.pause();
+    // docTitle.textContent = "Spotify - Web Player: Music for everyone";
+    // flag = true;
+    // playBtn.src = "./img/play.svg";
+    // setTimeout(() => {
+    //     displayData(songs)
+    //     audio1.play();
+    //     docTitle.textContent = `${songs[i].songName} - ${songs[i].artist}`
+    //     flag = false;
+    //     playBtn.src = "./img/pause.svg";
+    // }, 200)
+
+}

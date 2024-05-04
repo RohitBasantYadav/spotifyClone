@@ -1,50 +1,62 @@
-:root{
+:root {
     --bg-grey: #121212;
     --bg-radius: 10px;
 }
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
 }
 
-body{
+body {
     background-color: black;
     color: white;
 }
-#sidebar{
+
+.invert{
+    filter: invert(1);
+}
+#sidebar {
     /* border: 1px solid green; */
     width: 25vw;
     padding: 8px;
     line-height: 45px;
-    
+
 }
-#container{
+
+#container {
     display: flex;
     gap: 5px;
 }
-#home-section{
+
+#home-section {
     background-color: var(--bg-grey);
     padding: 15px;
     border-radius: var(--bg-radius);
 }
-#sidebar img{
-   filter: invert(1);
+
+#sidebar img {
+    filter: invert(1);
 }
-.svg-icon{
+
+.svg-icon {
     width: 20px;
 }
-#sidebar a{
+
+#sidebar a {
     color: white;
     text-decoration: none;
 }
-.center{
+
+.center {
     display: flex;
     gap: 10px;
     align-items: center;
 }
-#library-section{
+
+#library-section {
     margin-top: 10px;
     background-color: var(--bg-grey);
     padding: 15px;
@@ -52,83 +64,95 @@ body{
     height: 72vh;
     position: relative;
 }
-#library-section>div:first-child{
+
+#library-section>div:first-child {
     display: flex;
     justify-content: space-between;
 }
 
-#library-section>div>button{
+#library-section>div>button {
     background-color: transparent;
     padding: 10px;
     border: none;
     /* color: white; */
     cursor: pointer;
 }
-#library-section>div>button>img{
+
+#library-section>div>button>img {
     width: 20px;
 }
-#library-section>div>button:hover{
+
+#library-section>div>button:hover {
     /* border: 1px solid green; */
     border-radius: 50%;
     background-color: #1f1e1e;
 }
-#sidebar-footer{
+
+#sidebar-footer {
     /* border: 1px solid green; */
     position: absolute;
     bottom: 0;
     display: flex;
     gap: 15px;
 }
-#sidebar-footer>a{
+
+#sidebar-footer>a {
     color: grey;
     font-size: 12px;
 }
-#contents{
+
+#contents {
     /* border: 1px solid blue; */
     width: 75vw;
     padding: 10px 0;
     /* padding: 15px; */
 }
-#navbar-section{
+
+#navbar-section {
     /* border: 1px solid red; */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(34 34 34);
+    background-color: #222222;
     border-radius: 10px 10px 0 0;
     height: 10vh;
     padding: 20px;
 }
-#arrow-section>img{
+
+#arrow-section>img {
     background-color: #121212;
     padding: 5px;
     border-radius: 50%;
     margin-right: 5px;
 }
-#auth-section>button{
+
+#auth-section>button {
     border: none;
     background-color: transparent;
     font-weight: bold;
     font-size: medium;
 }
-#auth-section>button:first-child{
+
+#auth-section>button:first-child {
     color: white;
     margin-right: 20px;
 }
-#auth-section>button:last-child{
+
+#auth-section>button:last-child {
     background-color: white;
     padding: 10px 20px;
     border-radius: 20px;
 }
-#songs-section{
-    border: 1px solid white;
+
+#songs-section {
+    /* border: 1px solid white; */
     background-color: var(--bg-grey);
     border-radius: 0 0 10px 10px;
     height: 86vh;
     position: relative;
 }
 
-#library-list{
+#library-list {
     /* border: 1px solid green; */
     padding: 0;
     overflow-y: scroll;
@@ -137,81 +161,170 @@ body{
     scrollbar-color: #5d5959 #252524;
     scrollbar-width: thin;
 }
-#library-list>div{
+
+#library-list>div {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     line-height: normal;
 }
-#library-list>div>div:nth-child(2){
+
+#library-list>div>div:nth-child(2) {
     width: 60%;
 }
-#library-list>div img{
+
+#library-list>div img {
     width: 100%;
     filter: none;
 }
-.poster{
+
+.poster {
     width: 20%;
 }
 
-#player{
-    border: 1px solid white;
+#player {
+    /* border-top: 1px solid white; */
+    background-color: #222222;
     width: 100%;
     /* height: 20px; */
     position: absolute;
     bottom: 0;
     /* left: 5%; */
-    margin: 10px 0;
+    margin: 10px 0 0 0;
     padding: 0 40px;
+    border-radius: 0 0 10px 10px;
 }
-#playerBtn{
+
+#playerBtn {
     /* background-color: black; */
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 40px;
+    margin-top: 5px;
 }
-#userInteractionBtns{
+
+#userInteractionBtns {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 40px;
 }
-#volumeSection{
+#userInteractionBtns>img{
+    cursor: pointer;
+}
+#volumeSection {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10px;
 }
-#songNameSection{
+
+#seekingSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#songNameSection {
     display: flex;
     /* justify-content: space-around; */
-    width:25%;
+    width: 25%;
     align-items: center;
     gap: 20px;
     /* border: 1px solid blue; */
 }
-#songNameSection>div:first-child{
+
+#songNameSection>div:first-child {
     /* border: 1px solid green; */
     width: 20%;
 }
-#songNameSection>div:last-child{
+
+#songNameSection>div:last-child {
     /* border: 1px solid red; */
     width: 100%;
 }
-#songNameSection>div:last-child>p{
+
+#songNameSection>div:last-child>p {
     font-weight: bold;
 }
-.artist{
+
+.artist {
     font-size: small;
     color: #8b8080;
 }
-#songNameSection>div>img{
+
+#songNameSection>div>img {
     width: 100%;
 }
 
 
 /* Input range styling */
 
-#volumeRange{
-    
+input[type=range] {
+    margin: 20px 0;
+    width: 90%;
+    height: 2px;
+    -webkit-appearance: none;
 }
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid #05ba05;
+    height: 10px;
+    width: 15px;
+    border-radius: 10px;
+    margin-top: -3px;
+    background: #138613;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #0c7a04f5, 0px 0px 1px #0c7a04f5;
+
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+    border: 1px solid #05ba05;
+    height: 10px;
+    width: 15px;
+    border-radius: 10px;
+    background: #138613;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #0c7a04f5, 0px 0px 1px #0c7a04f5;
+  }
+  
+  /* All CSS style for seekbar */
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 90%;
+    height: 5px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #0c7a04f5, 0px 0px 1px #0c7a04f5;
+    background: #138613;
+    border-radius: 8px;
+    border: 0.2px solid #0c7a04f5;
+  }
+  
+  input[type=range]:hover::-webkit-slider-runnable-track {
+    background: #138613;
+  }
+  
+  input[type=range]::-moz-range-track {
+    width: 90%;
+    height: 5px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #0c7a04f5, 0px 0px 1px #0c7a04f5;
+    background: #138613;
+    border-radius: 8px;
+    border: 0.2px solid #0c7a04f5;
+  }
